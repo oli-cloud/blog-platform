@@ -16,10 +16,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-stone-200/80 bg-paper/90 backdrop-blur-xl dark:border-stone-800 dark:bg-neutral-950/90">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center px-5 sm:px-8">
         <Link to="/" className="flex items-center gap-3 font-serif text-2xl font-semibold tracking-tight text-ink dark:text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent font-sans text-sm text-white">A</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-sans text-sm font-bold text-white">AJ</span>
           Addis Journal
         </Link>
-        <nav className="ml-10 hidden items-center gap-7 text-sm font-semibold sm:flex">
+        <nav className="ml-10 hidden items-center gap-7 text-base font-semibold sm:flex">
           <NavLink to="/posts" className={({ isActive }) => isActive ? 'text-accent' : 'text-stone-500 transition hover:text-accent dark:text-stone-400'}>Stories</NavLink>
           <NavLink to="/categories" className={({ isActive }) => isActive ? 'text-accent' : 'text-stone-500 transition hover:text-accent dark:text-stone-400'}>Topics</NavLink>
         </nav>

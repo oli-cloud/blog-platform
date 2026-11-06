@@ -30,7 +30,7 @@ button, input, textarea { font: inherit; }
 .prose-editor h1 { font-size: 2.5rem; }
 .prose-editor h2 { font-size: 2rem; }
 .prose-editor h3 { font-size: 1.55rem; }
-.prose-editor p { margin-bottom: 1.5rem; font-size: 1.25rem; line-height: 1.85; }
+.prose-editor p { margin-bottom: 1.5rem; font-size: 1.35rem; line-height: 1.85; }
 .prose-editor a { color: #c62828; text-decoration: underline; text-underline-offset: 3px; }
 .prose-editor ul, .prose-editor ol { margin: 0 0 1.5rem 1.5rem; font-size: 1.25rem; line-height: 1.8; }
 .prose-editor ul { list-style: disc; }

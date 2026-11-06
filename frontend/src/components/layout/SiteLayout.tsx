@@ -15,7 +15,7 @@ export function SiteLayout() {
             <Link to="/" className="font-serif text-xl font-semibold">Addis Journal</Link>
             <p className="mt-1 text-sm text-stone-400">Independent stories for curious minds.</p>
           </div>
-          <div className="flex items-center gap-6 text-sm font-medium text-stone-500">
+          <div className="flex items-center gap-6 text-base font-medium text-stone-500">
             <Link to="/posts" className="hover:text-accent">Stories</Link>
             <Link to="/categories" className="hover:text-accent">Topics</Link>
             <Link to="/register" className="inline-flex items-center gap-1 text-ink dark:text-white">Subscribe <ArrowUpRight size={14} /></Link>

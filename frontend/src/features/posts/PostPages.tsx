@@ -32,10 +32,10 @@ function PostList() {
       <header className="mb-10 border-b border-stone-200 pb-9 dark:border-stone-800">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">Independent ideas & stories</p>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">Independent ideas & stories</p>
             <h1 className="max-w-3xl font-serif text-5xl leading-[0.95] tracking-tight text-ink dark:text-white sm:text-7xl">Addis Journal</h1>
           </div>
-          <p className="hidden max-w-xs text-right text-sm leading-6 text-stone-500 md:block">Thoughtful writing on creativity, culture, technology, and the way we live now.</p>
+          <p className="hidden max-w-sm text-right text-base leading-7 text-stone-500 md:block">Thoughtful writing on creativity, culture, technology, and the way we live now.</p>
         </div>
       </header>
 
@@ -94,7 +94,7 @@ function PostList() {
                     <span className="text-stone-400">0{index + 1}</span>
                   </div>
                   <h3 className="mt-3 font-serif text-[1.7rem] leading-[1.12] transition-colors group-hover:text-accent">{post.title}</h3>
-                  <p className="mt-3 line-clamp-2 text-sm leading-6 text-stone-500 dark:text-stone-400">{post.excerpt || post.content}</p>
+                  <p className="mt-3 line-clamp-2 text-base leading-7 text-stone-500 dark:text-stone-400">{post.excerpt || post.content}</p>
                   <div className="mt-5 flex items-center gap-2 text-xs text-stone-400">
                     <Clock size={13} />
                     <span>{readingTime(post)} min read</span>
