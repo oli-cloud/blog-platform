@@ -21,6 +21,7 @@ export default function App() {
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardPage />} />
           <Route path="posts/new" element={<PostEditorPage />} />
+          <Route path="posts/:postId/edit" element={<PostEditorPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Route>

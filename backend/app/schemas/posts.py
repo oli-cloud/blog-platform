@@ -36,6 +36,8 @@ class PostUpdate(BaseModel):
     featured_image_url: str | None = None
     category_ids: list[uuid.UUID] | None = None
     tag_ids: list[uuid.UUID] | None = None
+    status: PostStatus | None = None
+    published_at: datetime | None = None
 
 
 class PostResponse(BaseModel):

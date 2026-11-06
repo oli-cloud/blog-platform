@@ -70,10 +70,20 @@ def update_post(post_id: uuid.UUID, payload: PostUpdate, db: Session = Depends(g
     if post is None or post.deleted_at is not None:
         raise HTTPException(status_code=404, detail='Post not found')
     can_manage(post, user)
-    for field in ('title', 'excerpt', 'content', 'featured_image_url'):
+    for field in ('title', 'excerpt', 'content'):
         value = getattr(payload, field)
         if value is not None:
             setattr(post, field, value)
+    if payload.featured_image_url is not None:
+        post.featured_image_url = payload.featured_image_url
+    elif 'featured_image_url' in payload.model_fields_set:
+        post.featured_image_url = None
+    if payload.status is not None:
+        post.status = payload.status
+        if payload.status == PostStatus.PUBLISHED:
+            post.published_at = payload.published_at or utcnow()
+        elif payload.status != PostStatus.PUBLISHED:
+            post.published_at = None
     if payload.category_ids is not None:
         post.categories = list(db.scalars(select(Category).where(Category.id.in_(payload.category_ids), Category.deleted_at.is_(None))).all())
     if payload.tag_ids is not None:

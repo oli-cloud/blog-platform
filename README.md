@@ -1,13 +1,14 @@
-# Modern Blog Platform
+# Addis Journal
 
 A full-stack blog application with a FastAPI backend and React/Vite frontend.
 
 ## Features
 
-- User registration and login with JWT authentication
-- Public blog posts, categories, tags, comments, and media
-- Authenticated post creation and profile management
-- Administrator and dashboard routes
+- User registration, login, logout, and JWT authentication
+- Public and scheduled blog posts with search, categories, and tags
+- Markdown post creation, editing, publishing, drafts, deletion, and image uploads
+- Profile management, comments, and post likes
+- User dashboards with publishing controls and administrator user management
 - Local SQLite storage in development
 - Automatic API documentation through FastAPI
 
@@ -81,7 +82,7 @@ The backend defaults to a local SQLite database at `backend/blog.db`.
 Important backend settings can be placed in `backend/.env`:
 
 ```dotenv
-APP_NAME=Modern Blog Platform
+APP_NAME=Addis Journal
 ENVIRONMENT=development
 DEBUG=true
 DATABASE_URL=sqlite:///./blog.db

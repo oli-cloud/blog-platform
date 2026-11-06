@@ -1,4 +1,14 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { LayoutDashboard, FileText, Settings } from 'lucide-react'
-export function DashboardLayout(){return <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6"><div className="flex flex-col gap-6 md:flex-row"><aside className="md:w-52"><nav className="sticky top-24 space-y-1"><DashboardLink to="/dashboard" end icon={<LayoutDashboard size={17}/>}>Overview</DashboardLink><DashboardLink to="/dashboard/posts/new" icon={<FileText size={17}/>}>New post</DashboardLink><DashboardLink to="/dashboard/profile" icon={<Settings size={17}/>}>Profile</DashboardLink></nav></aside><div className="min-w-0 flex-1"><Outlet/></div></div></div>}
-function DashboardLink({to,end,icon,children}:{to:string;end?:boolean;icon:React.ReactNode;children:React.ReactNode}){return <NavLink end={end} to={to} className={({isActive})=>`flex items-center gap-2 rounded-lg px-3 py-2 text-sm ${isActive?'bg-stone-200 font-semibold dark:bg-stone-800':'text-stone-600 hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-900'}`}>{icon}{children}</NavLink>}
+import { LayoutDashboard, FileText, Settings, Shield } from 'lucide-react'
+import { useAuth } from '../../features/auth/AuthContext'
+
+export function DashboardLayout() {
+  const { user } = useAuth()
+  return <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6"><div className="flex flex-col gap-6 md:flex-row"><aside className="md:w-52"><nav className="sticky top-24 space-y-1">
+    <DashboardLink to="/dashboard" end icon={<LayoutDashboard size={17} />}>Overview</DashboardLink>
+    <DashboardLink to="/dashboard/posts/new" icon={<FileText size={17} />}>New post</DashboardLink>
+    <DashboardLink to="/dashboard/profile" icon={<Settings size={17} />}>Profile</DashboardLink>
+    {user?.role === 'admin' && <DashboardLink to="/admin" icon={<Shield size={17} />}>Administration</DashboardLink>}
+  </nav></aside><div className="min-w-0 flex-1"><Outlet /></div></div></div>
+}
+function DashboardLink({ to, end, icon, children }: { to: string; end?: boolean; icon: React.ReactNode; children: React.ReactNode }) { return <NavLink end={end} to={to} className={({ isActive }) => `flex items-center gap-2 rounded-lg px-3 py-2 text-sm ${isActive ? 'bg-stone-200 font-semibold dark:bg-stone-800' : 'text-stone-600 hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-900'}`}>{icon}{children}</NavLink> }
