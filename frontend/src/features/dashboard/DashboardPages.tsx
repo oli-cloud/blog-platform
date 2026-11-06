@@ -1,0 +1,15 @@
+import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom'
+import { FileText, Plus, Settings } from 'lucide-react'
+import api from '../../services/api'
+import type { Post, User } from '../../types'
+import { useAuth } from '../auth/AuthContext'
+
+export function DashboardPage() {
+ const {user}=useAuth(); const {data:posts,isLoading}=useQuery({queryKey:['my-posts'],queryFn:async()=> (await api.get<Post[]>('/users/me/posts')).data})
+ const drafts=posts?.filter(p=>p.status==='draft').length||0; const published=posts?.filter(p=>p.status==='published').length||0
+ return <div><div className="mb-8 flex items-end justify-between"><div><p className="text-sm text-stone-500">Dashboard</p><h1 className="text-3xl font-bold">Welcome, {user?.display_name}</h1></div><Link to="/dashboard/posts/new" className="flex items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white dark:bg-stone-100 dark:text-ink"><Plus size={16}/>New article</Link></div><div className="grid gap-4 md:grid-cols-3"><Stat label="All posts" value={posts?.length||0}/><Stat label="Published" value={published}/><Stat label="Drafts" value={drafts}/></div><section className="mt-8 rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-neutral-900"><div className="border-b border-stone-200 px-5 py-4 font-semibold dark:border-stone-800">Recent posts</div>{isLoading?<div className="p-5 text-sm">Loading posts…</div>:posts?.length===0?<div className="p-10 text-center text-sm text-stone-500">No posts yet. Start your first article.</div>:posts?.map(post=><div key={post.id} className="flex items-center border-b border-stone-100 px-5 py-4 last:border-0 dark:border-stone-800"><FileText size={18} className="mr-3 text-stone-400"/><div><p className="font-medium">{post.title}</p><p className="text-xs capitalize text-stone-500">{post.status}</p></div></div>)}</section></div>
+}
+function Stat({label,value}:{label:string;value:number}){return <div className="rounded-xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-neutral-900"><p className="text-sm text-stone-500">{label}</p><p className="mt-2 text-3xl font-bold">{value}</p></div>}
+export function ProfilePage(){const {user}=useAuth();return <div><h1 className="mb-6 text-3xl font-bold">Profile settings</h1><div className="rounded-xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-neutral-900"><Settings className="mb-4"/><p className="font-semibold">{(user as User)?.display_name}</p><p className="text-sm text-stone-500">{user?.email}</p></div></div>}
+export function AdminPage(){const {data,error}=useQuery({queryKey:['admin-dashboard'],queryFn:async()=> (await api.get<{users:number;posts:number;comments:number}>('/admin/dashboard')).data});if(error)return <div className="text-red-600">Unable to load analytics.</div>;return <div><h1 className="mb-6 text-3xl font-bold">Administration</h1><div className="grid gap-4 md:grid-cols-3">{data&&<><Stat label="Users" value={data.users}/><Stat label="Posts" value={data.posts}/><Stat label="Comments" value={data.comments}/></>}</div></div>}
