@@ -1,1 +1,10 @@
 notes.md
+backend/.venv/
+backend/__pycache__/
+backend/.pytest_cache/
+backend/blog.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+frontend/node_modules/
+frontend/dist/
+.env
