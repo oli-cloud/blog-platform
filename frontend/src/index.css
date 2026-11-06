@@ -20,9 +20,9 @@ button, input, textarea { font: inherit; }
 .editorial-placeholder {
   background-color: #dfe5df;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(31, 111, 95, .22), transparent 28%),
+    radial-gradient(circle at 20% 30%, rgba(198, 40, 40, .22), transparent 28%),
     radial-gradient(circle at 78% 70%, rgba(194, 145, 90, .20), transparent 26%),
-    linear-gradient(135deg, #e7ebe5 0%, #cbd5cd 100%);
+    linear-gradient(135deg, #eee7e7 0%, #d6caca 100%);
 }
 
 .prose-editor { color: inherit; font-family: 'Newsreader', Georgia, serif; }
@@ -31,13 +31,13 @@ button, input, textarea { font: inherit; }
 .prose-editor h2 { font-size: 2rem; }
 .prose-editor h3 { font-size: 1.55rem; }
 .prose-editor p { margin-bottom: 1.5rem; font-size: 1.25rem; line-height: 1.85; }
-.prose-editor a { color: #1f6f5f; text-decoration: underline; text-underline-offset: 3px; }
+.prose-editor a { color: #c62828; text-decoration: underline; text-underline-offset: 3px; }
 .prose-editor ul, .prose-editor ol { margin: 0 0 1.5rem 1.5rem; font-size: 1.25rem; line-height: 1.8; }
 .prose-editor ul { list-style: disc; }
 .prose-editor ol { list-style: decimal; }
-.prose-editor blockquote { margin: 2rem 0; border-left: 3px solid #1f6f5f; padding-left: 1.25rem; font-size: 1.55rem; font-style: italic; line-height: 1.5; }
+.prose-editor blockquote { margin: 2rem 0; border-left: 3px solid #c62828; padding-left: 1.25rem; font-size: 1.55rem; font-style: italic; line-height: 1.5; }
 .prose-editor img { width: 100%; border-radius: 1rem; margin: 2rem 0; }
 .prose-editor pre { overflow-x: auto; border-radius: .75rem; background: #17202a; padding: 1.25rem; color: white; }
 .prose-editor code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em; }
 
-::selection { background: rgba(31, 111, 95, .18); }
+::selection { background: rgba(198, 40, 40, .18); }

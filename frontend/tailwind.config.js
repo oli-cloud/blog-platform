@@ -4,7 +4,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: { ink: '#17202a', paper: '#f8f7f3', accent: '#1f6f5f' },
+      colors: { ink: '#17202a', paper: '#f8f7f3', accent: '#c62828' },
       fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
     },
   },

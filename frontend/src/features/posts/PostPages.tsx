@@ -44,7 +44,7 @@ function PostList() {
       {data?.items.length === 0 && <EmptyState />}
 
       {featured && (
-        <section className="mb-14 grid overflow-hidden rounded-[2rem] bg-[#16201c] lg:grid-cols-[1.08fr_.92fr]">
+        <section className="mb-14 grid overflow-hidden rounded-[2rem] bg-[#241718] lg:grid-cols-[1.08fr_.92fr]">
           <div className="relative min-h-[360px] overflow-hidden bg-stone-800 lg:min-h-[520px]">
             {featured.featured_image_url ? (
               <img src={featured.featured_image_url} alt="" className="absolute inset-0 h-full w-full object-cover transition duration-700 hover:scale-[1.02]" />
@@ -55,7 +55,7 @@ function PostList() {
           </div>
           <div className="flex flex-col justify-between p-7 text-white sm:p-10 lg:p-12">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8dd4b6]">{featured.categories[0]?.name || 'Featured story'}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f6a5a5]">{featured.categories[0]?.name || 'Featured story'}</p>
               <Link to={`/posts/${featured.slug}`} className="group mt-6 block">
                 <h2 className="max-w-xl font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-[3.5rem]">{featured.title}</h2>
               </Link>
@@ -64,10 +64,10 @@ function PostList() {
             <div className="mt-10 flex items-center justify-between border-t border-white/15 pt-6">
               <div className="flex items-center gap-4 text-xs text-stone-300">
                 {featured.published_at && <span>{formatDate(featured.published_at)}</span>}
-                <span className="h-1 w-1 rounded-full bg-[#8dd4b6]" />
+                <span className="h-1 w-1 rounded-full bg-[#f6a5a5]" />
                 <span>{readingTime(featured)} min read</span>
               </div>
-              <Link to={`/posts/${featured.slug}`} aria-label={`Read ${featured.title}`} className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#16201c] transition hover:rotate-45">
+              <Link to={`/posts/${featured.slug}`} aria-label={`Read ${featured.title}`} className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#241718] transition hover:rotate-45">
                 <ArrowUpRight size={19} />
               </Link>
             </div>
